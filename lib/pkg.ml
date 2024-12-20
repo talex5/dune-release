@@ -430,7 +430,7 @@ let distrib_version_opam_files ~dry_run ~version =
 let distrib_prepare ~dry_run ~dist_build_dir ~version =
   Sos.with_dir ~dry_run dist_build_dir
     (fun () ->
-      Sos.run ~dry_run Cmd.(v "dune" % "subst") >>= fun () ->
+       (* Sos.run ~dry_run Cmd.(v "dune" % "subst") >>= fun () -> *)
       distrib_version_opam_files ~dry_run ~version)
     ()
   |> R.join
