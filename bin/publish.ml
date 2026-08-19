@@ -100,15 +100,15 @@ open Cmdliner
 
 let artefacts =
   let parser = function
-    | "do" | "doc" -> `Ok `Doc
-    | "di" | "dis" | "dist" | "distr" | "distri" | "distrib" -> `Ok `Distrib
-    | s -> `Error (strf "`%s' unknown publication artefact" s)
+    | "do" | "doc" -> Ok `Doc
+    | "di" | "dis" | "dist" | "distr" | "distri" | "distrib" -> Ok `Distrib
+    | s -> Error (strf "`%s' unknown publication artefact" s)
   in
   let printer ppf = function
     | `Doc -> Fmt.string ppf "doc"
     | `Distrib -> Fmt.string ppf "distrib"
   in
-  let artefact = (parser, printer) in
+  let artefact = Arg.Conv.make ~parser ~pp:printer ~docv:"artefact" () in
   let doc =
     strf
       "The artefact to publish. $(docv) must be either `doc` or `distrib`. If \

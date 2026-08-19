@@ -1,4 +1,4 @@
-(lang dune 2.7)
+(lang dune 3.8)
 (name dune-release)
 
 (cram enable)
@@ -25,16 +25,11 @@ with [Dune](https://github.com/ocaml/dune) and hosted on
 [GitHub](https://github.com).")
  (depends
   (ocaml (>= 4.08.0))
-  ;; two dependencies on dune to work around
-  ;; https://github.com/ocaml/dune/issues/3431
-  dune
-  ;; the tests require dune 3.8
-  (dune (and (>= 3.8) :with-test))
   (curly (>= 0.3.0))
   (fmt (>= 0.8.7))
   (fpath (>= 0.7.3))
   (bos (>= 0.1.3))
-  (cmdliner (>= 1.1.0))
+  (cmdliner (>= 2.1.0))
   (re (>= 1.7.2))
   astring
   (opam-file-format (>= 2.1.2))
