@@ -31,6 +31,7 @@ with [Dune](https://github.com/ocaml/dune) and hosted on
   (bos (>= 0.1.3))
   (cmdliner (>= 2.1.0))
   (re (>= 1.7.2))
+  (sherlodoc (>= 3.2.1))
   astring
   (opam-file-format (>= 2.1.2))
   (opam-format (>= 2.1.0))
